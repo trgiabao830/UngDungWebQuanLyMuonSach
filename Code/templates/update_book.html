@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cập nhật thông tin mượn sách</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Cập nhật thông tin mượn sách</h2>
+        
+        <div class="card shadow-sm mb-5">
+            <div class="card-body">
+                <form action="{{ url_for('update_book', id=book[0]) }}" method="post">
+                    <div class="form-group">
+                        <label for="mssv">Mã sinh viên:</label>
+                        <input type="text" id="mssv" name="mssv" class="form-control" value="{{ book[1] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ten_sv">Tên sinh viên:</label>
+                        <input type="text" id="ten_sv" name="ten_sv" class="form-control" value="{{ book[2] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ten_sach">Tên sách:</label>
+                        <input type="text" id="ten_sach" name="ten_sach" class="form-control" value="{{ book[3] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ngay_muon">Ngày mượn:</label>
+                        <input type="text" id="ngay_muon" name="ngay_muon" class="form-control" 
+                               value="{{ convert_to_display_format(book[4]) }}" placeholder="dd/mm/yyyy" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ngay_tra">Ngày trả:</label>
+                        <input type="text" id="ngay_tra" name="ngay_tra" class="form-control" 
+                               value="{{ convert_to_display_format(book[5]) }}" placeholder="dd/mm/yyyy">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Cập nhật</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ url_for('library_management') }}" class="btn btn-secondary">Quay lại</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
